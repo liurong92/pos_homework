@@ -26,6 +26,13 @@ describe('Scanner', function () {
       expect(result[0].item.brand).toEqual('可口可乐');
       expect(result[1].item.brand).toEqual('可口可乐');
     });
+    // barcode, name, unit, price, brand
+    it('should return two cartItems_barcode', function () {
+      var result = scanner.addCartItems([{ 'ITEM000000' : 20 },
+                                         { 'ITEM000010' : 20 }]);
+      expect(result[0].item.barcode).toEqual('ITEM000000');
+      expect(result[1].item.barcode).toEqual('ITEM000010');
+    });
 
   });
 });
