@@ -14,8 +14,8 @@ Scanner.prototype.addCartItems = function (tag) {
       this.cartItems.push(new CartItem(item, tag[i][key]));
     }
   }
-  return this.cartItems;
 
+  return this.cartItems;
 };
 
 module.exports = Scanner;

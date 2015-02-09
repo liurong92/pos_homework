@@ -19,6 +19,6 @@ Item.all = function () {
     new Item('ITEM000008', '康师傅冰红茶', '瓶', 3.00, '康师傅'),
     new Item('ITEM000006', '羽毛球', '个', 1.00, '')
   ];
-}
+};
 
 module.exports = Item;
