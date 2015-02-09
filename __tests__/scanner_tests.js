@@ -44,5 +44,13 @@ describe('Scanner', function () {
       expect(result[1].item.name).toEqual('可口可乐550ml');
     });
 
+    it('should return two cartItems_price', function () {
+      var result = scanner.addCartItems([{ 'ITEM000000' : 20 },
+                                         { 'ITEM000010' : 20 }]);
+
+      expect(result[0].item.price).toEqual(3);
+      expect(result[1].item.price).toEqual(4);
+    });
+
   });
 });
