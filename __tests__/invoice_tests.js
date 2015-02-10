@@ -26,4 +26,13 @@ describe('Invoice', function() {
                              '名称：云山荔枝，数量：12斤，单价：15.00(元)，小计：180.00(元)\n');
     });
   });
+
+  describe('#getPromotionListText', function() {
+    it('should return promotion Text', function() {
+      var result = invoice.getPromotionList(1);
+
+      expect(result).toEqual('名称：可口可乐品牌打折，金额：14.00元\n' +
+                             '名称：满100减3，金额：3.00元\n');
+    });
+  });
 });
