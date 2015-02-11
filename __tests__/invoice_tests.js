@@ -1,6 +1,7 @@
 jest.dontMock('../src/model/invoice.js');
 jest.dontMock('../src/model/item.js');
 jest.dontMock('../src/model/cartitem.js');
+jest.dontMock('../src/model/tactics.js');
 jest.dontMock('lodash');
 
 describe('Invoice', function() {

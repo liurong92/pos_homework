@@ -1,4 +1,5 @@
 var _ = require('lodash');
+var Tactics = require('./tactics.js');
 
 function Invoice (cartItems) {
   this.cartItems = cartItems;
@@ -14,8 +15,28 @@ Invoice.prototype.getCartItemsList = function () {
 };
 
 Invoice.prototype.getPromotionList = function (tacticsType) {
-  var promotionList = '名称：可口可乐品牌打折，金额：14.00元\n' +
-                         '名称：满100减3，金额：3.00元\n';
+  var cartItems = this.cartItems;
+  var promotionList = '';
+  switch (tacticsType) {
+    case 1 :
+      promotionList += Tactics.getTacticsFirst();
+      break;
+
+    case 2 :
+      promotionList += 'meiyou';
+      break;
+
+    case 3 :
+      promotionList += 'meiyou';
+      break;
+
+    case 4 :
+      promotionList += 'meiyou';
+      break;
+
+    default :
+    promotionList += 'meiyou';
+  }
   return promotionList;
 };
 
