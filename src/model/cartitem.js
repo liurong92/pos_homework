@@ -1,6 +1,7 @@
 function CartItem (item, count) {
   this.item = item;
   this.count = count;
+  this.promotion = false;
 }
 
 CartItem.prototype.getPrice = function() {
