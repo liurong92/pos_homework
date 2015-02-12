@@ -1,6 +1,7 @@
 var _ = require('lodash');
 var Promotion = require('./promotion.js');
 var Discount = require('./discount.js');
+var Reduce = require('./reduce.js');
 
 function Tactics () {
 
@@ -12,7 +13,7 @@ Tactics.getTacticsFirst =  function (cartItems) {
 
   var notPromotionCartItems = this.getNotPromotionCartItems(cartItems);
   var commonCartItems = this.getCommonCartItems(notPromotionCartItems, '康师傅方便面');
-  promotionList += this.getAllSuperReduceText(commonCartItems, 100, 3);
+  promotionList += Reduce.getAllSuperReduceText(commonCartItems, 100, 3);
 
   return promotionList;
 };
@@ -58,24 +59,6 @@ Tactics.getCommonCartItems = function (notPromotionCartItems, itemName) {
   });
   return commonCartItems;
 };
-
-Tactics.getAllSuperReduceText = function (commonCartItems, conditions, reduceMoney) {
-  var saveMoney = this.calculateSaveMoney(commonCartItems, conditions, reduceMoney);
-  return '名称：满' + conditions + '减' + reduceMoney +
-         '，金额：' + saveMoney.toFixed(2) + '元\n';
-};
-
-Tactics.calculateSaveMoney = function (commonCartItems, conditions, reduceMoney) {
-  var saveMoney = 0;
-  _.forEach(commonCartItems, function (commonCartItem) {
-    commonCartItem.promotion = true;
-    saveMoney += commonCartItem.count * commonCartItem.getPrice();
-  });
-  return Math.floor(saveMoney/conditions) * reduceMoney;
-
-};
-
-
 
 
 module.exports = Tactics;
