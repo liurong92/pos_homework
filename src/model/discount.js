@@ -10,6 +10,7 @@ Discount.getBrandText = function (brandCartItems, brandName, rate) {
   _.forEach(brandCartItems, function(brandCartItem) {
     brandCartItems.promotion = true;
     brandSaveMoney += brandCartItem.count * brandCartItem.getPrice() * saveRate;
+    brandCartItem.saveMoney += brandCartItem.count * brandCartItem.getPrice() * saveRate;
   });
   return '名称：' + brandName + '品牌打折，金额：' + brandSaveMoney.toFixed(2) + '元\n';
 };

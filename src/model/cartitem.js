@@ -2,6 +2,7 @@ function CartItem (item, count) {
   this.item = item;
   this.count = count;
   this.promotion = false;
+  this.saveMoney = 0;
 }
 
 CartItem.prototype.getPrice = function() {

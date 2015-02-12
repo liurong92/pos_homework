@@ -17,12 +17,12 @@ describe('Invoice', function() {
                  new CartItem(new Item.all()[7], 30),
                  new CartItem(new Item.all()[5], 12)];
     Invoice = require('../src/model/invoice.js');
-    invoice = new Invoice(cartItems);
+    invoice = new Invoice();
   });
 
   describe('#getCartItemsListText', function() {
     it('should return cartItems Text', function() {
-      var result = invoice.getCartItemsList();
+      var result = invoice.getCartItemsList(cartItems);
 
       expect(result).toEqual('名称：可口可乐350ml，数量：20瓶，单价：3.00(元)，小计：60.00(元)\n' +
                              '名称：可口可乐550ml，数量：20瓶，单价：4.00(元)，小计：80.00(元)\n' +
@@ -33,7 +33,7 @@ describe('Invoice', function() {
 
   describe('#getPromotionListText', function() {
     it('should return promotion Text', function() {
-      var result = invoice.getPromotionList(1);
+      var result = invoice.getPromotionList(cartItems,1);
 
       expect(result).toEqual('名称：可口可乐品牌打折，金额：14.00元\n' +
                              '名称：满100减3，金额：3.00元\n');

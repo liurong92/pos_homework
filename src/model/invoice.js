@@ -1,12 +1,11 @@
 var _ = require('lodash');
 var Tactics = require('./tactics.js');
 
-function Invoice (cartItems) {
-  this.cartItems = cartItems;
+function Invoice () {
+
 }
 
-Invoice.prototype.getCartItemsList = function () {
-  var cartItems = this.cartItems;
+Invoice.prototype.getCartItemsList = function (cartItems) {
   var cartItemsList = '';
   _.forEach(cartItems, function(cartItem) {
     cartItemsList += cartItem.getCartItemText();
@@ -14,8 +13,7 @@ Invoice.prototype.getCartItemsList = function () {
   return cartItemsList;
 };
 
-Invoice.prototype.getPromotionList = function (tacticsType) {
-  var cartItems = this.cartItems;
+Invoice.prototype.getPromotionList = function (cartItems, tacticsType) {
   var promotionList = '';
   switch (tacticsType) {
     case 1 :

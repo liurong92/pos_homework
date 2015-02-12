@@ -11,12 +11,13 @@ Reduce.getAllSuperReduceText = function (commonCartItems, conditions, reduceMone
 };
 
 Reduce.calculateSaveMoney = function (commonCartItems, conditions, reduceMoney) {
-  var saveMoney = 0;
+  var saveMoneys = 0;
   _.forEach(commonCartItems, function (commonCartItem) {
     commonCartItem.promotion = true;
-    saveMoney += commonCartItem.count * commonCartItem.getPrice();
+    saveMoneys += commonCartItem.count * commonCartItem.getPrice();
+    commonCartItem.saveMoney += Math.floor(saveMoneys/conditions) * reduceMoney;
   });
-  return Math.floor(saveMoney/conditions) * reduceMoney;
+  return Math.floor(saveMoneys/conditions) * reduceMoney;
 };
 
 module.exports = Reduce;

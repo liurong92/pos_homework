@@ -11,7 +11,8 @@ Promotion.brands = function() {
 
 Promotion.items = function() {
     return [
-        new Promotion('可口可乐350ml', 0.95)
+        new Promotion('可口可乐350ml', 0.95),
+        new Promotion('雪碧', 0.95)
     ];
 };
 
