@@ -19,23 +19,23 @@ Invoice.prototype.getPromotionList = function (tacticsType) {
   var promotionList = '';
   switch (tacticsType) {
     case 1 :
-      promotionList += Tactics.getTacticsFirst();
+      promotionList += Tactics.getTacticsFirst(cartItems);
       break;
 
     case 2 :
-      promotionList += 'meiyou';
+      promotionList += Tactics.getTacticsFirst(cartItems);
       break;
 
     case 3 :
-      promotionList += 'meiyou';
+      promotionList += Tactics.getTacticsFirst(cartItems);
       break;
 
     case 4 :
-      promotionList += 'meiyou';
+      promotionList += Tactics.getTacticsFirst(cartItems);
       break;
 
     default :
-    promotionList += 'meiyou';
+    promotionList += '没有优惠商品。';
   }
   return promotionList;
 };
