@@ -11,7 +11,7 @@ Tactics.getTacticsFirst =  function (cartItems) {
   promotionList += this.getBrandsPromotionList(cartItems);
 
   var notPromotionCartItems = this.getNotPromotionCartItems(cartItems);
-  var commonCartItems = this.getCommonCartItems(notPromotionCartItems);
+  var commonCartItems = this.getCommonCartItems(notPromotionCartItems, '康师傅方便面');
   promotionList += this.getAllSuperReduceText(commonCartItems, 100, 3);
 
   return promotionList;
@@ -49,10 +49,10 @@ Tactics.getNotPromotionCartItems = function (cartItems) {
   return notPromotionCartItems;
 };
 
-Tactics.getCommonCartItems = function (notPromotionCartItems) {
+Tactics.getCommonCartItems = function (notPromotionCartItems, itemName) {
   var commonCartItems = [];
   _.forEach(notPromotionCartItems, function (notPromotionCartItem) {
-    if(notPromotionCartItem.getName() !== '康师傅方便面') {
+    if(notPromotionCartItem.getName() !== itemName) {
       commonCartItems.push(notPromotionCartItem);
     }
   });
