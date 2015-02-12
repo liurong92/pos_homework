@@ -1,5 +1,6 @@
 var _ = require('lodash');
 var Promotion = require('./promotion.js');
+var Discount = require('./discount.js');
 
 function Tactics () {
 
@@ -15,7 +16,7 @@ Tactics.getBrandsPromotionList = function (cartItems) {
   var brandsPromotionList = '';
   _.forEach(Promotion.brands(), function(brand) {
     var brandCartItems = Tactics.getBrandsCartItems(cartItems, brand);
-    brandsPromotionList += Tactics.getBrandText(brandCartItems, brand.name, brand.rate);
+    brandsPromotionList += Discount.getBrandText(brandCartItems, brand.name, brand.rate);
   });
 
   return brandsPromotionList;
@@ -31,13 +32,6 @@ Tactics.getBrandsCartItems = function (cartItems, brand) {
   return brandCartItems;
 };
 
-Tactics.getBrandText = function (brandCartItems, brandName, rate) {
-  var brandSaveMoney = 0;
-  var saveRate = (1 - rate).toFixed(2);
-  _.forEach(brandCartItems, function(brandCartItem) {
-    brandSaveMoney += brandCartItem.count * brandCartItem.getPrice() * saveRate;
-  });
-  return '名称：' + brandName + '品牌打折，金额：' + brandSaveMoney.toFixed(2) + '元\n';
-};
+
 
 module.exports = Tactics;

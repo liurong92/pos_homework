@@ -1,10 +1,10 @@
-jest.dontMock('../src/model/tactics.js');
+jest.dontMock('../src/model/discount.js');
 jest.dontMock('lodash');
 
-describe('Tactics', function () {
+describe('Discount', function () {
   describe(',getBrandText', function() {
     it('should return 名称：可口可乐品牌打折，金额：6.00元', function () {
-      var Tactics = require('../src/model/tactics.js');
+      var Discount = require('../src/model/discount.js');
       getPrice = jest.genMockFn();
       getPrice.mockReturnValue(3);
       var brandCartItems = [{'item' :
@@ -18,7 +18,7 @@ describe('Tactics', function () {
       var brandName = '可口可乐';
       var rate = 0.9;
 
-      var result = Tactics.getBrandText(brandCartItems, brandName, rate);
+      var result = Discount.getBrandText(brandCartItems, brandName, rate);
 
       expect(result).toEqual('名称：可口可乐品牌打折，金额：6.00元\n');
     });

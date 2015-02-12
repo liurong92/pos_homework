@@ -3,6 +3,7 @@ jest.dontMock('../src/model/item.js');
 jest.dontMock('../src/model/cartitem.js');
 jest.dontMock('../src/model/tactics.js');
 jest.dontMock('../src/model/promotion.js');
+jest.dontMock('../src/model/discount.js');
 jest.dontMock('lodash');
 
 describe('Invoice', function() {
