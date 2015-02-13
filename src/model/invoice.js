@@ -74,9 +74,9 @@ Invoice.prototype.printInventory = function (cartItems, tacticsType) {
            '\n----------------------\n' + '优惠信息：\n' +
            this.getPromotionList(cartItems, tacticsType) +
            '\n----------------------\n' +
+           this.getTotalMoneyText(cartItems) +
            this.getSaveMoneyText(cartItems) +
            '**********************\n';
-           console.log(cartItems);
            return print;
 };
 

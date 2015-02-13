@@ -9,7 +9,7 @@ jest.dontMock('lodash');
 jest.dontMock('moment');
 
 describe('Invoice', function() {
-  var Item, CartItem, catItems, Invoice, incoice;
+  var Item, CartItem, catItems, Invoice, incoice, moment;
   beforeEach(function() {
     Item = require('../src/model/item.js');
     CartItem = require('../src/model/cartitem.js');
@@ -19,6 +19,7 @@ describe('Invoice', function() {
                  new CartItem(new Item.all()[5], 12)];
     Invoice = require('../src/model/invoice.js');
     invoice = new Invoice();
+    moment = require('moment');
   });
 
   describe('#getCartItemsListText', function() {
@@ -42,7 +43,7 @@ describe('Invoice', function() {
   });
 
   describe('#getSaveMoney', function() {
-    it('should return promotion saveMoney', function() {
+    it('should return saveMoney', function() {
       invoice.getPromotionList(cartItems, 1);
       var result = invoice.getSaveMoney(cartItems);
 
@@ -51,7 +52,7 @@ describe('Invoice', function() {
   });
 
   describe('#getSaveMoneyText', function() {
-    it('should return promotion saveMoneyText', function() {
+    it('should return saveMoneyText', function() {
       invoice.getPromotionList(cartItems, 1);
       var result = invoice.getSaveMoneyText(cartItems);
 
@@ -60,7 +61,7 @@ describe('Invoice', function() {
   });
 
   describe('#getTotalMoney', function() {
-    it('should return promotion totalMoney', function() {
+    it('should return totalMoney', function() {
       invoice.getPromotionList(cartItems, 1);
       var result = invoice.getTotalMoney(cartItems);
 
@@ -69,11 +70,33 @@ describe('Invoice', function() {
   });
 
   describe('#getTotalMoneyText', function() {
-    it('should return promotion totalMoneyText', function() {
+    it('should return totalMoneyText', function() {
       invoice.getPromotionList(cartItems, 1);
       var result = invoice.getTotalMoneyText(cartItems);
 
       expect(result).toEqual('总计：438.00(元)\n');
+    });
+  });
+
+  describe('#printInventory', function() {
+    it('should return asdfadf', function() {
+      var tacticsType = 1;
+      var result = invoice.printInventory(cartItems, tacticsType);
+
+      expect(result).toBe('***<没钱赚商店>购物清单***\n打印时间：' +
+                          moment().format('YYYY年MM月DD日 HH:mm:ss') + '\n\n' +
+                          '----------------------\n' +
+                          '名称：可口可乐350ml，数量：20瓶，单价：3.00(元)，小计：60.00(元)\n' +
+                          '名称：可口可乐550ml，数量：20瓶，单价：4.00(元)，小计：80.00(元)\n' +
+                          '名称：康师傅方便面，数量：30袋，单价：4.50(元)，小计：135.00(元)\n' +
+                          '名称：云山荔枝，数量：12斤，单价：15.00(元)，小计：180.00(元)\n\n' +
+                          '----------------------\n' +
+                          '优惠信息：\n' +
+                          '名称：可口可乐品牌打折，金额：14.00元\n' +
+                          '名称：满100减3，金额：3.00元\n\n' +
+                          '----------------------\n' +
+                          '总计：438.00(元)\n节省：17.00(元)\n' +
+                          '**********************\n');
     });
   });
 });
