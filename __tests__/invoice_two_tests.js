@@ -37,7 +37,7 @@ describe('Invoice', function() {
     });
   });
 
-  describe('#getPromotionListText', function() {
+  describe('#getPromotionList', function() {
     it('should return promotion Text', function() {
       var result = invoice.getPromotionList(cartItems,2);
 
@@ -46,15 +46,15 @@ describe('Invoice', function() {
                              '名称：云山荔枝满100减5，金额：5.00元\n');
     });
   });
-  //
-  // describe('#getSaveMoney', function() {
-  //   it('should return saveMoney', function() {
-  //     invoice.getPromotionList(cartItems, 1);
-  //     var result = invoice.getSaveMoney(cartItems);
-  //
-  //     expect(result).toEqual(17);
-  //   });
-  // });
+
+  describe('#getSaveMoney', function() {
+    it('should return saveMoney', function() {
+      invoice.getPromotionList(cartItems, 2);
+      var result = invoice.getSaveMoney(cartItems);
+
+      expect(result).toEqual(12);
+    });
+  });
   //
   // describe('#getSaveMoneyText', function() {
   //   it('should return saveMoneyText', function() {
