@@ -57,8 +57,13 @@ Invoice.prototype.getTotalMoney = function (cartItems) {
   _.forEach(cartItems, function (cartItem) {
     totalMoney += cartItem.getSubTotal();
   });
+
   totalMoney -= this.getSaveMoney(cartItems);
   return totalMoney;
+};
+
+Invoice.prototype.getTotalMoneyText = function (cartItems) {
+  return '总计：' + this.getTotalMoney(cartItems).toFixed(2) + '(元)\n';
 };
 
 Invoice.prototype.printInventory = function (cartItems, tacticsType) {

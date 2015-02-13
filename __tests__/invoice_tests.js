@@ -67,4 +67,13 @@ describe('Invoice', function() {
       expect(result).toEqual(438);
     });
   });
+
+  describe('#getTotalMoneyText', function() {
+    it('should return promotion totalMoneyText', function() {
+      invoice.getPromotionList(cartItems, 1);
+      var result = invoice.getTotalMoneyText(cartItems);
+
+      expect(result).toEqual('总计：438.00(元)\n');
+    });
+  });
 });
