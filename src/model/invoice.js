@@ -23,7 +23,7 @@ Invoice.prototype.getPromotionList = function (cartItems, tacticsType) {
       break;
 
     case 2 :
-      promotionList += Tactics.getTacticsFirst(cartItems);
+      promotionList += Tactics.getTacticsTwo(cartItems);
       break;
 
     case 3 :
@@ -77,7 +77,7 @@ Invoice.prototype.printInventory = function (cartItems, tacticsType) {
            this.getTotalMoneyText(cartItems) +
            this.getSaveMoneyText(cartItems) +
            '**********************\n';
-           return print;
+  return print;
 };
 
 module.exports = Invoice;
