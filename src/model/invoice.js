@@ -19,7 +19,7 @@ Invoice.prototype.getPromotionList = function (cartItems, tacticsType) {
   var promotionList = '';
   switch (tacticsType) {
     case 1 :
-      promotionList += Tactics.getTacticsFirst(cartItems);
+      promotionList += Tactics.getTacticsOne(cartItems);
       break;
 
     case 2 :

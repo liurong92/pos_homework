@@ -7,7 +7,7 @@ function Tactics () {
 
 }
 
-Tactics.getTacticsFirst =  function (cartItems) {
+Tactics.getTacticsOne =  function (cartItems) {
   var promotionList = '';
   promotionList += this.getBrandsPromotionList(cartItems);
 
