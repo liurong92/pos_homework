@@ -41,6 +41,14 @@ Invoice.prototype.getPromotionList = function (cartItems, tacticsType) {
   return promotionList;
 };
 
+Invoice.prototype.getSaveTotal = function (cartItems) {
+  var saveTotal = 0;
+  _.forEach(cartItems, function (cartItem) {
+    saveTotal += cartItem.saveMoney;
+  });
+  return saveTotal;
+};
+
 Invoice.prototype.printInventory = function (cartItems, tacticsType) {
   var print ='***<没钱赚商店>购物清单***\n' + '打印时间：' +
            moment().format('YYYY年MM月DD日 HH:mm:ss') +

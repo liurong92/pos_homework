@@ -41,12 +41,12 @@ describe('Invoice', function() {
     });
   });
 
-  // describe('#print', function() {
-  //   it('should return promotion Text', function() {
-  //     var result = invoice.printInventory(cartItems,1);
-  //
-  //     expect(result).toEqual('名称：可口可乐品牌打折，金额：14.00元\n' +
-  //                            '名称：满100减3，金额：3.00元\n');
-  //   });
-  // });
+  describe('#getSaveTotal', function() {
+    it('should return promotion subTotal', function() {
+      invoice.getPromotionList(cartItems, 1);
+      var result = invoice.getSaveTotal(cartItems);
+
+      expect(result).toEqual(17);
+    });
+  });
 });
