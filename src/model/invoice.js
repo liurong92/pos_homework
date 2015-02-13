@@ -41,12 +41,12 @@ Invoice.prototype.getPromotionList = function (cartItems, tacticsType) {
   return promotionList;
 };
 
-Invoice.prototype.getSaveTotal = function (cartItems) {
-  var saveTotal = 0;
+Invoice.prototype.getSaveMoney = function (cartItems) {
+  var saveMoney = 0;
   _.forEach(cartItems, function (cartItem) {
-    saveTotal += cartItem.saveMoney;
+    saveMoney += cartItem.saveMoney;
   });
-  return saveTotal;
+  return saveMoney;
 };
 
 Invoice.prototype.printInventory = function (cartItems, tacticsType) {
@@ -57,6 +57,7 @@ Invoice.prototype.printInventory = function (cartItems, tacticsType) {
            '\n----------------------\n' + '优惠信息：\n' +
            this.getPromotionList(cartItems, tacticsType) +
            '\n----------------------\n' +
+
            '**********************\n';
            console.log(cartItems);
            return print;

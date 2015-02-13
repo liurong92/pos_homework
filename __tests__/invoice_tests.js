@@ -44,7 +44,7 @@ describe('Invoice', function() {
   describe('#getSaveTotal', function() {
     it('should return promotion subTotal', function() {
       invoice.getPromotionList(cartItems, 1);
-      var result = invoice.getSaveTotal(cartItems);
+      var result = invoice.getSaveMoney(cartItems);
 
       expect(result).toEqual(17);
     });
