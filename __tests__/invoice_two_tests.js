@@ -55,15 +55,15 @@ describe('Invoice', function() {
       expect(result).toEqual(12);
     });
   });
-  //
-  // describe('#getSaveMoneyText', function() {
-  //   it('should return saveMoneyText', function() {
-  //     invoice.getPromotionList(cartItems, 1);
-  //     var result = invoice.getSaveMoneyText(cartItems);
-  //
-  //     expect(result).toEqual('节省：17.00(元)\n');
-  //   });
-  // });
+
+  describe('#getSaveMoneyText', function() {
+    it('should return saveMoneyText', function() {
+      invoice.getPromotionList(cartItems, 2);
+      var result = invoice.getSaveMoneyText(cartItems);
+
+      expect(result).toEqual('节省：12.00(元)\n');
+    });
+  });
   //
   // describe('#getTotalMoney', function() {
   //   it('should return totalMoney', function() {
