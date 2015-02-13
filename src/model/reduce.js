@@ -28,8 +28,8 @@ Reduce.calculateSaveMoney = function (commonCartItems, conditions, reduceMoney) 
     commonCartItem.promotion = true;
     saveMoneys += commonCartItem.count * commonCartItem.getPrice();
   });
-  
-  commonCartItems[0].saveMoney = Math.floor(saveMoneys/conditions) * reduceMoney;
+
+  commonCartItems[0].saveMoney += Math.floor(saveMoneys/conditions) * reduceMoney;
   return Math.floor(saveMoneys/conditions) * reduceMoney;
 };
 

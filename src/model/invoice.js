@@ -27,7 +27,7 @@ Invoice.prototype.getPromotionList = function (cartItems, tacticsType) {
       break;
 
     case 3 :
-      promotionList += Tactics.getTacticsFirst(cartItems);
+      promotionList += Tactics.getTacticsThree(cartItems);
       break;
 
     case 4 :

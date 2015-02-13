@@ -31,6 +31,7 @@ Tactics.getTacticsTwo = function (cartItems) {
   return promotionList;
 };
 
+
 Tactics.getItemsPromotionList = function (cartItems) {
   var itemsPromotionList = '';
   _.forEach(Promotion.items(), function(item) {
