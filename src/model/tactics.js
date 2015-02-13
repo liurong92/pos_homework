@@ -31,6 +31,12 @@ Tactics.getTacticsTwo = function (cartItems) {
   return promotionList;
 };
 
+Tactics.getTacticsThree = function (cartItems) {
+  var promotionList = '名称：可口可乐350ml单品打折，金额：3.00元\n' +
+                         '名称：康师傅品牌满100减2，金额：4.00元\n' +
+                         '名称：云山荔枝满100减5，金额：5.00元\n';
+  return promotionList;
+};
 
 Tactics.getItemsPromotionList = function (cartItems) {
   var itemsPromotionList = '';
