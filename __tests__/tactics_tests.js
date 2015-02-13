@@ -41,7 +41,6 @@ describe('Tactics', function() {
       expect(result[0].item.name).toEqual('可口可乐350ml');
       expect(result[0].item.barcode).toEqual('ITEM000000');
       expect(result[0].item.price).toEqual(3);
-
     });
   });
 });
