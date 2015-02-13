@@ -52,6 +52,15 @@ Invoice.prototype.getSaveMoneyText = function (cartItems) {
   return '节省：' + this.getSaveMoney(cartItems).toFixed(2) + '(元)\n';
 };
 
+Invoice.prototype.getTotalMoney = function (cartItems) {
+  var totalMoney = 0;
+  _.forEach(cartItems, function (cartItem) {
+    totalMoney += cartItem.getSubTotal();
+  });
+  totalMoney -= this.getSaveMoney(cartItems);
+  return totalMoney;
+};
+
 Invoice.prototype.printInventory = function (cartItems, tacticsType) {
   var print ='***<没钱赚商店>购物清单***\n' + '打印时间：' +
            moment().format('YYYY年MM月DD日 HH:mm:ss') +
