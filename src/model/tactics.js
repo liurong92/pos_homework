@@ -28,7 +28,6 @@ Tactics.getTacticsTwo = function (cartItems) {
   var itemReduceCartItems = this.getItemReduceCarItems(cartItems, '云山荔枝');
   promotionList += Reduce.getItemReduceText(itemReduceCartItems, 100, 5);
 
-  console.log(cartItems);
   return promotionList;
 };
 
@@ -118,7 +117,5 @@ Tactics.getItemReduceCarItems = function (cartItems, reduceName) {
 
   return reduceCartItems;
 };
-
-
 
 module.exports = Tactics;
