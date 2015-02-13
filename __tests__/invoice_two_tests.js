@@ -74,14 +74,14 @@ describe('Invoice', function() {
     });
   });
 
-  // describe('#getTotalMoneyText', function() {
-  //   it('should return totalMoneyText', function() {
-  //     invoice.getPromotionList(cartItems, 1);
-  //     var result = invoice.getTotalMoneyText(cartItems);
-  //
-  //     expect(result).toEqual('总计：438.00(元)\n');
-  //   });
-  // });
+  describe('#getTotalMoneyText', function() {
+    it('should return totalMoneyText', function() {
+      invoice.getPromotionList(cartItems, 2);
+      var result = invoice.getTotalMoneyText(cartItems);
+
+      expect(result).toEqual('总计：535.00(元)\n');
+    });
+  });
   //
   // describe('#printInventory', function() {
   //   it('should return asdfadf', function() {
