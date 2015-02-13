@@ -6,6 +6,7 @@ jest.dontMock('../src/model/promotion.js');
 jest.dontMock('../src/model/discount.js');
 jest.dontMock('../src/model/reduce.js');
 jest.dontMock('lodash');
+jest.dontMock('moment');
 
 describe('Invoice', function() {
   var Item, CartItem, catItems, Invoice, incoice;
@@ -39,4 +40,13 @@ describe('Invoice', function() {
                              '名称：满100减3，金额：3.00元\n');
     });
   });
+
+  // describe('#print', function() {
+  //   it('should return promotion Text', function() {
+  //     var result = invoice.printInventory(cartItems,1);
+  //
+  //     expect(result).toEqual('名称：可口可乐品牌打折，金额：14.00元\n' +
+  //                            '名称：满100减3，金额：3.00元\n');
+  //   });
+  // });
 });

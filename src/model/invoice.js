@@ -1,4 +1,5 @@
 var _ = require('lodash');
+var moment = require('moment');
 var Tactics = require('./tactics.js');
 
 function Invoice () {
@@ -10,6 +11,7 @@ Invoice.prototype.getCartItemsList = function (cartItems) {
   _.forEach(cartItems, function(cartItem) {
     cartItemsList += cartItem.getCartItemText();
   });
+
   return cartItemsList;
 };
 
@@ -35,7 +37,21 @@ Invoice.prototype.getPromotionList = function (cartItems, tacticsType) {
     default :
     promotionList += '没有优惠商品。';
   }
+  // console.log(cartItems);
   return promotionList;
+};
+
+Invoice.prototype.printInventory = function (cartItems, tacticsType) {
+  var print ='***<没钱赚商店>购物清单***\n' + '打印时间：' +
+           moment().format('YYYY年MM月DD日 HH:mm:ss') +
+           '\n\n----------------------\n' +
+           this.getCartItemsList(cartItems) +
+           '\n----------------------\n' + '优惠信息：\n' +
+           this.getPromotionList(cartItems, tacticsType) +
+           '\n----------------------\n' +
+           '**********************\n';
+           console.log(cartItems);
+           return print;
 };
 
 module.exports = Invoice;

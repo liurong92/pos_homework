@@ -12,11 +12,9 @@ Tactics.getTacticsFirst =  function (cartItems) {
   promotionList += this.getBrandsPromotionList(cartItems);
 
   var notPromotionCartItems = this.getNotPromotionCartItems(cartItems);
-
   var commonCartItems = this.getCommonCartItems(notPromotionCartItems, '康师傅方便面');
   promotionList += Reduce.getAllSuperReduceText(commonCartItems, 100, 3);
 
-  console.log(cartItems);
   return promotionList;
 };
 
