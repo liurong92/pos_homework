@@ -48,16 +48,16 @@ describe('Invoice', function() {
                              '名称：9折，金额：48.90元\n');
     });
   });
-  //
-  // describe('#getSaveMoney', function() {
-  //   it('should return saveMoney', function() {
-  //     invoice.getPromotionList(cartItems, 3);
-  //     var result = invoice.getSaveMoney(cartItems);
-  //
-  //     expect(result).toEqual(44.70);
-  //   });
-  // });
-  //
+
+  describe('#getSaveMoney', function() {
+    it('should return saveMoney', function() {
+      invoice.getPromotionList(cartItems, 4);
+      var result = invoice.getSaveMoney(cartItems);
+
+      expect(result).toEqual(76.90);
+    });
+  });
+
   // describe('#getSaveMoneyText', function() {
   //   it('should return saveMoneyText', function() {
   //     invoice.getPromotionList(cartItems, 3);
