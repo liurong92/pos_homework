@@ -66,15 +66,15 @@ describe('Invoice', function() {
       expect(result).toEqual('节省：76.90(元)\n');
     });
   });
-  //
-  // describe('#getTotalMoney', function() {
-  //   it('should return totalMoney', function() {
-  //     invoice.getPromotionList(cartItems, 3);
-  //     var result = invoice.getTotalMoney(cartItems);
-  //
-  //     expect(result).toEqual(542.30);
-  //   });
-  // });
+
+  describe('#getTotalMoney', function() {
+    it('should return totalMoney', function() {
+      invoice.getPromotionList(cartItems, 4);
+      var result = invoice.getTotalMoney(cartItems);
+
+      expect(result).toEqual(530.10);
+    });
+  });
   //
   // describe('#getTotalMoneyText', function() {
   //   it('should return totalMoneyText', function() {
