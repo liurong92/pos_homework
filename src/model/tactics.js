@@ -27,14 +27,21 @@ Tactics.getTacticsTwo = function (cartItems) {
 
   var itemReduceCartItems = this.getItemReduceCarItems(cartItems, '云山荔枝');
   promotionList += Reduce.getItemReduceText(itemReduceCartItems, 100, 5);
-
   return promotionList;
 };
 
 Tactics.getTacticsThree = function (cartItems) {
-  var promotionList = '名称：可口可乐350ml单品打折，金额：3.00元\n' +
-                         '名称：康师傅品牌满100减2，金额：4.00元\n' +
-                         '名称：云山荔枝满100减5，金额：5.00元\n';
+  var promotionList = '';
+  promotionList += this.getItemsPromotionList(cartItems);
+
+  promotionList += this.getBrandsPromotionList(cartItems);
+
+  var brandReduceCartItems = this.getBrandReduceCartItems(cartItems, '康师傅');
+  promotionList += Reduce.getBrandReduceText(brandReduceCartItems, 100, 2);
+
+  var itemReduceCartItems = this.getItemReduceCarItems(cartItems, '云山荔枝');
+  promotionList += Reduce.getItemReduceText(itemReduceCartItems, 100, 5);
+
   return promotionList;
 };
 
