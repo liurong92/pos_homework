@@ -44,18 +44,18 @@ describe('Invoice', function() {
       expect(result).toEqual('名称：可口可乐350ml单品打折，金额：3.00元\n' +
                              '名称：可口可乐品牌打折，金额：17.70元\n' +
                              '名称：康师傅品牌满100减2，金额：4.00元\n' +
-                             '名称：云山荔枝满100减5，金额：5.00元\n');
+                             '名称：满100减5，金额：20.00元\n');
     });
   });
-  //
-  // describe('#getSaveMoney', function() {
-  //   it('should return saveMoney', function() {
-  //     invoice.getPromotionList(cartItems, 2);
-  //     var result = invoice.getSaveMoney(cartItems);
-  //
-  //     expect(result).toEqual(12);
-  //   });
-  // });
+
+  describe('#getSaveMoney', function() {
+    it('should return saveMoney', function() {
+      invoice.getPromotionList(cartItems, 3);
+      var result = invoice.getSaveMoney(cartItems);
+
+      expect(result).toEqual(44.70);
+    });
+  });
   //
   // describe('#getSaveMoneyText', function() {
   //   it('should return saveMoneyText', function() {

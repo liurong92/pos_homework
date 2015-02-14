@@ -39,8 +39,8 @@ Tactics.getTacticsThree = function (cartItems) {
   var brandReduceCartItems = this.getBrandReduceCartItems(cartItems, '康师傅');
   promotionList += Reduce.getBrandReduceText(brandReduceCartItems, 100, 2);
 
-  var itemReduceCartItems = this.getItemReduceCarItems(cartItems, '云山荔枝');
-  promotionList += Reduce.getItemReduceText(itemReduceCartItems, 100, 5);
+  var commonCartItems = this.getCommonCartItems(cartItems, '云山荔枝');
+  promotionList += Reduce.getAllSuperReduceText(commonCartItems, 100, 5);
 
   return promotionList;
 };

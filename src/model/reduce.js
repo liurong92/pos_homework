@@ -27,7 +27,11 @@ Reduce.calculateSaveMoney = function (commonCartItems, conditions, reduceMoney) 
   var saveMoneys = 0;
   _.forEach(commonCartItems, function (commonCartItem) {
     commonCartItem.promotion = true;
-    saveMoneys += commonCartItem.count * commonCartItem.getPrice();
+    if (commonCartItem.promotionTotal) {
+      saveMoneys += commonCartItem.promotionTotal;
+    } else {
+      saveMoneys += commonCartItem.count * commonCartItem.getPrice();
+    }
   });
   commonCartItems[0].saveMoney += Math.floor(saveMoneys/conditions) * reduceMoney;
   return Math.floor(saveMoneys/conditions) * reduceMoney;
