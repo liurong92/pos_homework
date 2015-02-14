@@ -45,6 +45,12 @@ Tactics.getTacticsThree = function (cartItems) {
   return promotionList;
 };
 
+Tactics.getTacticsFour = function (cartItems) {
+  var promotionList = '';
+
+  return promotionList;
+};
+
 Tactics.getItemsPromotionList = function (cartItems) {
   var itemsPromotionList = '';
   _.forEach(Promotion.items(), function(item) {
