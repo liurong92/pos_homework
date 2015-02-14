@@ -16,7 +16,7 @@ Discount.getBrandText = function (brandCartItems, brandName, rate) {
       brandSaveMoney += brandCartItem.count * brandCartItem.getPrice() * saveRate;
     }
   });
-  
+
   brandCartItems[0].saveMoney += brandSaveMoney;
 
   return '名称：' + brandName + '品牌打折，金额：' + brandSaveMoney.toFixed(2) + '元\n';
@@ -37,4 +37,16 @@ Discount.getItemText = function (itemCartItems, itemName, rate) {
   return '名称：' + itemName + '单品打折，金额：' + itemSaveMoney.toFixed(2) + '元\n';
 };
 
+Discount.getAllSuperDescountText = function (cartItems, rate) {
+  var allSaveMoney = 0;
+  var saveRate = (1 - rate).toFixed(2);
+  _.forEach(cartItems, function (cartItem) {
+    allSaveMoney += (cartItem.getSubTotal() - cartItem.saveMoney) * saveRate;
+  });
+
+  cartItems[0].saveMoney += allSaveMoney;
+  
+  return '名称：' + rate * 10 + '折，金额：' + allSaveMoney.toFixed(2) + '元\n';
+
+};
 module.exports = Discount;

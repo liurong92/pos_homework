@@ -47,8 +47,29 @@ Tactics.getTacticsThree = function (cartItems) {
 
 Tactics.getTacticsFour = function (cartItems) {
   var promotionList = '';
+  promotionList += this.getItemsPromotionList(cartItems);
 
+  Tactics.removePromotionTotal(cartItems);
+  promotionList += this.getBrandsPromotionList(cartItems);
+
+  var itemReduceCartItems = this.getItemReduceCarItems(cartItems, '果粒橙');
+  promotionList += Reduce.getItemReduceText(itemReduceCartItems, 100, 5);
+
+  var brandReduceCartItems = this.getBrandReduceCartItems(cartItems, '云山');
+  promotionList += Reduce.getBrandReduceText(brandReduceCartItems, 100, 2);
+
+  var commonCartItems = this.getCommonCartItems(cartItems, '雪碧');
+  promotionList += Discount.getAllSuperDescountText(commonCartItems, 0.9);
+  // console.log(commonCartItems);
   return promotionList;
+};
+
+Tactics.removePromotionTotal = function (cartItems) {
+  _.forEach(cartItems, function (cartItem) {
+    if (cartItem.promotionTotal) {
+      cartItem.promotionTotal = 0;
+    }
+  });
 };
 
 Tactics.getItemsPromotionList = function (cartItems) {
