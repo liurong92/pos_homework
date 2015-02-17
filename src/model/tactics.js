@@ -60,7 +60,6 @@ Tactics.getTacticsFour = function (cartItems) {
 
   var commonCartItems = this.getCommonCartItems(cartItems, '雪碧');
   promotionList += Discount.getAllSuperDescountText(commonCartItems, 0.9);
-  // console.log(commonCartItems);
   return promotionList;
 };
 
